@@ -12,12 +12,12 @@ object Wordcount {
       System.exit(1);
     }
 		
-		val spark = SparkSession
+		val spark = SparkSession //session created
 				.builder
 				.appName("Wordcount")
 				.getOrCreate()
 
-    val data = spark.read.textFile(args(0)).rdd
+    val data = spark.read.textFile(args(0)).rdd // tesxt file added
     
     val result = data.flatMap { line => {
       line.split(" ")
